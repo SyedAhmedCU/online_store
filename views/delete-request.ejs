@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <%- include("partials/meta.ejs")  %> 
+      <title>Syed's Gift Shop: Deleted Request</title>
+    </head>
+    <body>
+        <%- include('partials/header-nav.ejs') %> 
+        <main>
+          <section class="show-request">
+            <h1>Thank you</h1>
+            <h5>Following request has been successfully deleted!</h5>
+            <h4>RequestID: <%= _id %></h4>
+            <div class="request-image">
+              <% if (rPhotoName != ""){ %>
+                <img src= "/uploads/<%= rPhotoName%>" /> <br> 
+              <% } %>
+            </div>
+            <div class="request-text"></div>
+            <p>
+              <b>Name: </b> <%= rName %> <br>
+              <b>Email:</b> <%= rEmail %> <br>
+              <b>Subject:</b> <%= rSubject %>
+              <%- rDescription %> 
+            </p>
+          </section>
+        </main>
+        <%- include("partials/footer.ejs")  %> 
+    </body>
+</html>

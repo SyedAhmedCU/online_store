@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/meta.ejs")  %> 
+    <title>Syed's Gift Shop: Order Receipt</title>
+</head>
+<body>
+    <%- include("partials/header-nav.ejs") %> 
+    <main>
+        <section>
+            <%
+            if (typeof(sName)!= "undefined") {
+            %>
+                <div class="tablewrapper">
+                <h2>Reciept</h2>
+                <p>
+                    <% if (typeof(_id)!="undefined"){%>
+                    <b>ID:</b> <%= _id %> <br>
+                    <% } %>
+                    <b>Name:</b> <%= sName %><br>
+                    <b>Phone:</b> <%= sPhone %><br>
+                    <b>Email:</b> <%= sEmail %><br>
+                    <b>Address:</b> <%= sAddress %><br>
+                    <b>City:</b> <%= sCity %><br>
+                    <b>Province:</b> <%= sProvince %><br>
+                    <b>Tax Rates:</b> <%= taxRates %>%<br>
+                </p>
+                <table>
+                <caption>
+                    <b>Order Information</b>
+                </caption>
+                <tr>
+                    <th>Item</th>
+                    <th>Number of Unit</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>
+                </tr>
+            <%
+                if(sDonut>0){
+            %>
+                    <tr>
+                    <td>Donut</td>
+                    <td> <%= sDonut%> </td>
+                    <td>$<%= donutPrice%> </td>
+                    <td>$<%= costForDonut%> </td>
+                    </tr>
+            <%
+                }
+            %>
+            <%
+                if(sCookie>0){
+            %>
+                    <tr>
+                    <td>Cookie</td>
+                    <td><%=sCookie%></td>
+                    <td>$<%=cookiePrice%></td>
+                    <td>$<%=costForCookie%></td>
+                    </tr>
+            <%
+                }
+            %>
+            <%
+                if(sCake>0){
+            %>
+                    <tr>
+                    <td>Cake</td>
+                    <td><%=sCake%></td>
+                    <td>$<%=cakePrice%></td>
+                    <td>$<%=costForCake%></td>
+                    </tr>
+            <%
+                }
+            %>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Sub Total</th>
+                    <th>$<%=subtotal%></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>GST/HST</th>
+                    <th>$<%=totalTax%></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Total</th>
+                    <th>$<%=totalPrice%></th>
+                </tr>
+                </table>
+                </div>
+            <%
+                } 
+            %>
+        </section>
+    </main>
+    <%- include("partials/footer.ejs")  %> 
+</body>
+</html>

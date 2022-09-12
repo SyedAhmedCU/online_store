@@ -1,0 +1,29 @@
+<header>
+    <div id="topHead" class="logo_title">
+      <img src="/images/logo_transparent.png" alt="Goft Shop Logo" />
+      <!-- This Logo was created using https://hatchful.shopify.com/-->
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li>
+          <a href="/">Online Checkout</a>        
+        </li>
+        <li>
+          <a href="/request">Request</a>
+        </li>
+        <% if (typeof(adminLog) != "undefined" && adminLog){ %> 
+        <li>
+          <a href="/dashboard">Dashboard</a>
+        </li>
+        <% } %>
+        <li>
+          <% if (typeof(adminLog) != "undefined" && adminLog){ %> 
+          <a href="/logout">Logout</a>
+          <% } else{%>
+          <a href="/login">Admin Login</a>
+          <% } %>  
+        </li> 
+      </ul>
+  </nav> 
+  <div style="clear: both;"></div>
+</header>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/meta.ejs")  %> 
+    <title>Syed's Gift Shop: Admin Dashboard</title>
+</head>
+<body>
+    <%- include('partials/header-nav.ejs') %> 
+    <main>
+        
+        <div class="dashboard">
+            <h2>Dashboard</h2>
+            <h3> Order receipts </h3>
+            <div class="all-receipts">
+                <table>
+                    <tr>
+                    <th>Receipt ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Province</th>
+                    <th>City</th>
+                    <th>Total Price</th>
+                    <th>View</th>
+                    </tr>
+                    <% 
+                    for(var receipt of receipts){
+                    %>    
+                        <tr>
+                            <td><%= receipt._id %></a></td>
+                            <td><%= receipt.sName %></td>
+                            <td><%= receipt.sEmail %></td>
+                            <td><%= receipt.sPhone %></td>
+                            <td><%= receipt.sAddress %></td>
+                            <td><%= receipt.sProvince %></td>
+                            <td><%= receipt.sCity %></td>
+                            <td>$<%= receipt.totalPrice %> </td>
+                            <td><a href="/print/<%= receipt._id %>" target="_blank"><b>View</b></a></td>
+                        </tr>
+                    <%
+                        }
+                    %> 
+                </table>
+            </div>
+            <h3> Submitted Requests</h3>
+            <div class="all-requests">
+                <table class="requesttable">
+                    <tr>
+                    <th>Request ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>View</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    </tr>
+                    <% 
+                    for(var request of requests){
+                    %>    
+                        <tr>
+                            <td><%= request._id %></a></td>
+                            <td><%= request.rName %></td>
+                            <td><%= request.rEmail %></td>
+                            <td><%= request.rSubject %></td>
+                            <td><a href="/print/<%= request._id %>" target="_blank"> <b>View</b> </a></td>
+                            <td><a href="/edit-request/<%= request._id %>" target="_blank"> <b>Edit</b> </a></td>
+                            <td><a href="/delete-request/<%= request._id %>" target="_blank"> <b>Delete</b> </a></td>
+                        </tr>
+                    <%
+                        }
+                    %> 
+                </table>
+            </div>
+        </div>
+    </main>
+    <%- include("partials/footer.ejs")  %> 
+</body>
+</html>

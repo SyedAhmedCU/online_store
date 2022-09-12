@@ -1,0 +1,122 @@
+<%
+  var inputName = "" ;
+  var inputEmail = "";
+  var inputPhone= "";
+  var inputAddress = "";
+  var inputCity = "";
+  var inputDonut = "";
+  var inputCake = "";
+  var inputCookie = "";
+
+  if(typeof(keepData) != "undefined")
+  {
+    inputName = keepData.sName;
+    inputPhone = keepData.sPhone;
+    inputEmail = keepData.sEmail;
+    inputAddress = keepData.sAddress;
+    inputCity = keepData.sCity;
+    inputDonut  = keepData.sDonut; 
+    inputCake  = keepData.sCake; 
+    inputCookie  = keepData.sCookie; 
+  }
+%>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("partials/meta.ejs")  %> 
+        <title>Syed's Gift Shop: Online Checkout</title>
+    </head>
+    <body>
+        <%- include('partials/header-nav.ejs') %> 
+        <main>
+            <section>
+                <form name="checkout-form" method="post">
+                    <h2>Online Checkout</h2>
+                    <div class="grid">
+                        <fieldset class="labelwrapper">
+                            <legend>Shoppers Info</legend>
+                            <div class="shopper fieldwrapper">
+                                <label for="sName">Name*:</label>
+                                <input id="sName" name="sName" type="text" 
+                                    value="<%=inputName%>" placeholder="first & last name"/>
+                            </div>
+                            <div class="fieldwrapper">
+                                <label for="sPhone">Phone*:</label>
+                                <input id="sPhone" name="sPhone" type="text"
+                                    value="<%=inputPhone%>" placeholder="1231231234"/>
+                            </div>
+                            <div class="fieldwrapper">
+                                <label for="sEmail">Email*:</label>
+                                <input id="sEmail" name="sEmail" type="text" 
+                                    value="<%=inputEmail%>" placeholder="test@test.com"/>
+                            </div>
+                            <div class="fieldwrapper">
+                                <label for="sAddress">Address*:</label>
+                                <input id="sAddress" name="sAddress" 
+                                    value="<%=inputAddress%>" type="text"/>
+                            </div>
+                            <div class="fieldwrapper">
+                                <label for="sCity">City*:</label>
+                                <input id="sCity" name="sCity" 
+                                    value="<%=inputCity%>" type="text"/>
+                            </div>
+                            <div class="fieldwrapper">
+                                <label for="sProvince">Province*:</label>
+                                <select name="sProvince" id="sProvince">
+                                    <option value="">-------- Select ---------</option>
+                                    <option value="AB">Alberta</option>
+                                    <option value="BC">British Columbia</option>
+                                    <option value="MB">Manitoba</option>
+                                    <option value="NB">New Brunswick</option>
+                                    <option value="NL">Newfoundland and Labrador</option>
+                                    <option value="NS">Nova Scotia</option>
+                                    <option value="NT">Northwest Territories</option>
+                                    <option value="NU">Nunavut</option>
+                                    <option value="ON">Ontario</option>
+                                    <option value="PE">Prince Edward Island</option>
+                                    <option value="QC">Quebec</option>
+                                    <option value="SK">Saskatchewan</option>
+                                    <option value="YT">Yukon</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                        <fieldset class="item labelwrapper">
+                            <legend>Product List</legend>
+                            <div class="item_fieldwrapper">
+                                <label for="sDonut">Donut ($10.99):</label>
+                                <input id="sDonut" name="sDonut" type="text" 
+                                    value="<%=inputDonut%>">
+                            </div>
+                            <div class="item_fieldwrapper">
+                                <label for="sCookie">Cookie ($7.99):</label>
+                                <input id="sCookie" name="sCookie" type="text" 
+                                    value="<%=inputCookie%>">
+                            </div>
+                            <div class="item_fieldwrapper">
+                                <label for="sCake">Cake ($15.99):</label>
+                                <input id="sCake" name="sCake" type="text" 
+                                    value="<%=inputCake%>">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <input type="submit" value="Order">
+                    <input type="reset" value="Clear">
+                    <div class="errors">
+                        <p>
+                    <%
+                        if(typeof(errors)!= "undefined"){
+                          for (var error of errors){
+                    %>
+                            <%= error.msg %><br>
+                    <%
+                          }
+                        }
+                    %>
+                        </p>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <%- include("partials/footer.ejs")  %> 
+    </body>
+</html>
