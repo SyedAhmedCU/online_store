@@ -36,3 +36,5 @@ Go to http://localhost:8080/ from the browser when the server is up and running
 ## License
 Copyright 2022 Syed Tasnim Ahmed
 Licensed under the GPLv3: http://www.gnu.org/licenses/gpl-3.0.html
+### Why GPLv3?
+GPL license refers to the GNU’s General Public License version 3 which is widely used to prevent software from becoming proprietary. A particular user can freely use, modify, or redistribute software without any restrictions which is what I want for this project. 
