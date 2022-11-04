@@ -1,7 +1,7 @@
 # Syed's Gift Shop - Online Store Web application
 Full-stack web application for an online store based on the idea of eCommerce. Customers can order products by filling up a web form. They get a receipt and can also submit a request along with a photo. The informations are validated on the server side and also stored in a NoSQL database. Admin panel requires log in and allows owner to view/edit/delete the requests and view all the receipts. 
 - Developed the font-end with HTML5, CSS3, jQuery and server-side programming with Javascript which was rendered to the client-side using EJS.
-- Utilized Node.js and Express.js framework build the back-end with NoSQL database MongoDb.
+- Utilized Node.js and Express.js framework, REST API to build the back-end with NoSQL database MongoDb.
 - Express-validator was used for user input validation on the server-side.
 
 ![Onloine Store](https://user-images.githubusercontent.com/55814513/189981151-4bc773da-1ea9-48df-a57a-f1ef52fade63.png)
